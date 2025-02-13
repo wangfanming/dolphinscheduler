@@ -44,6 +44,8 @@ public abstract class BaseConnectionParam implements ConnectionParam {
 
     protected String other;
 
+    protected Map<String, String> others;
+
     private Map<String, String> props = new HashMap<>();
 
     public String getUser() {
@@ -116,6 +118,14 @@ public abstract class BaseConnectionParam implements ConnectionParam {
 
     public void setOther(String other) {
         this.other = other;
+    }
+
+    public Map<String, String> getOthers() {
+        return others;
+    }
+
+    public void setOthers(Map<String, String> others) {
+        this.others = others;
     }
 
     public Map<String, String> getProps() {

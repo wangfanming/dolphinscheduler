@@ -61,9 +61,6 @@ public enum DbType {
         return descp;
     }
 
-    private static final Map<Integer, DbType> DB_TYPE_MAP =
-            Arrays.stream(DbType.values()).collect(toMap(DbType::getCode, Functions.identity()));
-
     public static DbType of(int type) {
         if (DB_TYPE_MAP.containsKey(type)) {
             return DB_TYPE_MAP.get(type);
@@ -72,7 +69,8 @@ public enum DbType {
     }
 
     public static DbType ofName(String name) {
-        return Arrays.stream(DbType.values()).filter(e -> e.name().equals(name)).findFirst().orElseThrow(() -> new NoSuchElementException("no such db type"));
+        return Arrays.stream(DbType.values()).filter(e -> e.name().equals(name)).findFirst()
+                .orElseThrow(() -> new NoSuchElementException("no such db type"));
     }
 
     public boolean isHive() {

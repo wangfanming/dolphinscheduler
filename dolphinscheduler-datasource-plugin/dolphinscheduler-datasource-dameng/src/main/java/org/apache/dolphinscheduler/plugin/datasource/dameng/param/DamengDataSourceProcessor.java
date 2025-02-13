@@ -60,7 +60,7 @@ public class DamengDataSourceProcessor extends AbstractDataSourceProcessor {
 
         damengDatasourceParamDTO.setUserName(connectionParams.getUser());
         damengDatasourceParamDTO.setDatabase(connectionParams.getDatabase());
-        damengDatasourceParamDTO.setOther(connectionParams.getOther());
+        damengDatasourceParamDTO.setOther(connectionParams.getOthers());
 
         String address = connectionParams.getAddress();
         String[] hostSeperator = address.split(Constants.DOUBLE_SLASH);
@@ -89,7 +89,7 @@ public class DamengDataSourceProcessor extends AbstractDataSourceProcessor {
         damengConnectionParam.setPassword(PasswordUtils.encodePassword(dmDatasourceParam.getPassword()));
         damengConnectionParam.setDriverClassName(getDatasourceDriver());
         damengConnectionParam.setValidationQuery(getValidationQuery());
-        damengConnectionParam.setOther(dmDatasourceParam.getOther());
+        damengConnectionParam.setOthers(dmDatasourceParam.getOther());
 
         return damengConnectionParam;
     }
@@ -113,8 +113,8 @@ public class DamengDataSourceProcessor extends AbstractDataSourceProcessor {
     public String getJdbcUrl(ConnectionParam connectionParam) {
         DamengConnectionParam damengConnectionParam = (DamengConnectionParam) connectionParam;
         String jdbcUrl = damengConnectionParam.getJdbcUrl();
-        if (MapUtils.isNotEmpty(damengConnectionParam.getOther())) {
-            return String.format("%s?%s", jdbcUrl, transformOther(damengConnectionParam.getOther()));
+        if (MapUtils.isNotEmpty(damengConnectionParam.getOthers())) {
+            return String.format("%s?%s", jdbcUrl, transformOther(damengConnectionParam.getOthers()));
         }
         return jdbcUrl;
     }

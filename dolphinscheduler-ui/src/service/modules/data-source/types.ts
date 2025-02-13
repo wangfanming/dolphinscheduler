@@ -30,18 +30,18 @@ type IDataBase =
   | 'DAMENG'
 
 type IDataBaseLabel =
-| 'MYSQL'
-| 'POSTGRESQL'
-| 'HIVE'
-| 'SPARK'
-| 'CLICKHOUSE'
-| 'ORACLE'
-| 'SQLSERVER'
-| 'DB2'
-| 'PRESTO'
-| 'REDSHIFT'
-| 'ATHENA'
-| 'DAMENG'
+  | 'MYSQL'
+  | 'POSTGRESQL'
+  | 'HIVE'
+  | 'SPARK'
+  | 'CLICKHOUSE'
+  | 'ORACLE'
+  | 'SQLSERVER'
+  | 'DB2'
+  | 'PRESTO'
+  | 'REDSHIFT'
+  | 'ATHENA'
+  | 'DAMENG'
 
 interface IDataSource {
   id?: number
